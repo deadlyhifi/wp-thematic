@@ -4,14 +4,11 @@ add_filter('acf/settings/save_json', function() {
 });
 
 // Load ACF JSON from new location set above to enable JSON syncing
+// https://www.advancedcustomfields.com/resources/local-json/
 add_filter('acf/settings/load_json', function($paths) {
-    // remove original path (optional)
     // unset($paths[0]);
-
-    // append path
     $paths[] = get_stylesheet_directory() . '/functions/acf-json';
 
-    // return
     return $paths;
 });
 
